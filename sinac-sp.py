@@ -21,7 +21,8 @@ with open('sinasc-sp-2018.dat', 'rb') as arq:
             arqCopia.write(linha)
 
         if record[0].decode('latin1') == "354850" and record[5].decode('latin1') == "2":
-            quantMeninasSnt += 1
+            if record[3].decode('latin1')[4:] == "2018":
+                quantMeninasSnt += 1
 
         if record[0].decode('latin1') == "350950" and int(record[6].decode('latin1')) < 2500:
             if record[3].decode('latin1')[4:] == "2018":
